@@ -33,7 +33,10 @@ def main():
         
         j = 0
         while j < maxAttempts:
-            userGuessedWord = input("Guess your word")
+            print("CRACK A WORD")
+            print(f"Level : {selectMode}")
+            print(f"Attempts : {maxAttempts}")
+            userGuessedWord = input("\nGuess your word")
             getWordFromList = randomWord
             revealedWord = ""
             i = 0
