@@ -54,20 +54,3 @@ def main():
     i+=1
 
 main()
-
-# userInput = input("Guess your word")
-# print(userInput)
-
-# wordFromList = ["truth", "knowledge", "bliss"]
-# getRandomWord = random.choice(wordFromList)
-# guessedWord = ""
-# i = 0
-# length = len(userInput)
-# while i < length:
-#     if userInput[i] == getRandomWord[i]:
-#         guessedWord += userInput[i]
-#     else:
-#         guessedWord += "_ "
-#     i+= 1
-
-# print(guessedWord)
