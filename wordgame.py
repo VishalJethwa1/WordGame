@@ -3,7 +3,6 @@ import random
 beginner = ["able", "blow", "cake", "dine", "east", "fish", "game", "hell", "iron", "jack"]
 moderate = ["attack", "behave", "camera", "dealer", "easter", "feeling", "glacier", "hunger", "jailer"]
 advance = ["abstract", "believe", "cupboard", "director", "egoistic", "failure", "greetings", "fighter"]
-
   
 def main():
     global randomWord
@@ -14,7 +13,7 @@ def main():
         print("Press 2 for Moderate Mode")
         print("Press 3 for Advance Mode")
 
-        selectMode = int(input("Select Mode"))
+        selectMode = int(input("Select Level"))
 
         randomWord = None
         maxAttempts = None
@@ -34,9 +33,8 @@ def main():
         j = 0
         while j < maxAttempts:
             print("CRACK A WORD")
-            print(f"Level : {selectMode}")
-            print(f"Attempts : {maxAttempts}")
-            userGuessedWord = input("\nGuess your word")
+            print(f"Level : {selectMode} \t Attempts : {maxAttempts}")
+            userGuessedWord = input("Guess your word\n")
             getWordFromList = randomWord
             revealedWord = ""
             i = 0
@@ -44,8 +42,9 @@ def main():
             while i < length:
                 if userGuessedWord[i] == getWordFromList[i]:
                     revealedWord += userGuessedWord[i]
+                    break
                 else:
-                    revealedWord += "_ "
+                    revealedWord += " _ "
                 i+= 1
 
             print(revealedWord)
