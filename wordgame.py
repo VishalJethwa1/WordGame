@@ -36,21 +36,26 @@ def main():
             print(f"Level : {selectMode} \t Attempts : {maxAttempts}")
             userGuessedWord = input("Guess your word\n")
             getWordFromList = randomWord
+            print(getWordFromList)
             revealedWord = ""
             i = 0
             length = len(userGuessedWord)
             while i < length:
                 if userGuessedWord[i] == getWordFromList[i]:
                     revealedWord += userGuessedWord[i]
-                    break
                 else:
                     revealedWord += " _ "
                 i+= 1
-
+                
             print(revealedWord)
+            if revealedWord == userGuessedWord:
+                print("Congratulations! You cracked a word")
+                break
+
             maxAttempts -= 1
         j+=i
-
+        if maxAttempts > 0:
+            break
     i+=1
 
 main()
