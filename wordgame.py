@@ -12,7 +12,7 @@ def main():
         try:
             print("Select Level | 1 for Beginner | 2 for Moderate | 3 for Advance")
 
-            selectMode = int(input("Select Level"))
+            selectMode = int(input("Level"))
 
             randomWord = None
             maxAttempts = None
@@ -55,10 +55,11 @@ def main():
             print(revealedWord) #test statement
             if revealedWord == userGuessedWord:
                 print("Congratulations! You cracked a word")
+                print(f"Word : {revealedWord} \t Attempts : {maxAttempts}")
                 break
-            else:
-                print("")
-              
+            elif revealedWord != userGuessedWord: #this needs a correction!
+                print(f"Game Finished! \tWord : {revealedWord} \tAttempts : {maxAttempts}  \nPlay Again") 
+                #continue
         j+=i
           
         if maxAttempts > 0:
