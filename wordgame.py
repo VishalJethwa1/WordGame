@@ -39,15 +39,17 @@ def main():
             print(getWordFromList)
             revealedWord = ""
             i = 0
-            length = len(userGuessedWord)
-            while i < length:
-                if userGuessedWord[i] == getWordFromList[i]:
-                    revealedWord += userGuessedWord[i]
-                else:
-                    revealedWord += " _ "
-                i+= 1
-                
-            print(revealedWord)
+            length = len(getWordFromList)
+            try:
+                while i < length:
+                    if userGuessedWord[i] == getWordFromList[i]:
+                        revealedWord += userGuessedWord[i]
+                    else:
+                        revealedWord += " _ "
+                    i+= 1
+            except:
+                continue    
+            print(revealedWord) #test statement
             if revealedWord == userGuessedWord:
                 print("Congratulations! You cracked a word")
                 break
