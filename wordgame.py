@@ -10,6 +10,7 @@ def main():
     i = 1
     while i > 0: #this loop will continuously display select mode screen
         try:
+            print("CRACK A WORD")
             print("Select Level | 1 for Beginner | 2 for Moderate | 3 for Advance")
 
             selectMode = int(input("Level"))
@@ -33,8 +34,7 @@ def main():
             continue
         
         j = 0
-        while j < maxAttempts:
-            print("CRACK A WORD")
+        while j < maxAttempts: 
             print(f"Level : {selectMode} \t Attempts : {maxAttempts}")
             userGuessedWord = input("Guess your word\n")
             maxAttempts -= 1
@@ -47,19 +47,22 @@ def main():
                 while i < length:
                     if userGuessedWord[i] == getWordFromList[i]:
                         revealedWord += userGuessedWord[i]
-                    else:
+                    elif userGuessedWord[i] != getWordFromList[i]:
                         revealedWord += " _ "
                     i+= 1
             except:
                  continue    
             print(revealedWord) #test statement
             if revealedWord == userGuessedWord:
+                revealedWord = revealedWord.upper()
                 print("Congratulations! You cracked a word")
                 print(f"Word : {revealedWord} \t Attempts : {maxAttempts}")
                 break
-            elif revealedWord != userGuessedWord: #this needs a correction!
-                print(f"Game Finished! \tWord : {revealedWord} \tAttempts : {maxAttempts}  \nPlay Again") 
-                #continue
+            elif revealedWord != userGuessedWord and maxAttempts == 0:
+                getWordFromList = getWordFromList.upper()
+                print(f"\t\tYOU LOSE! \n\tWORD: {getWordFromList} \tATTEMPTS : {maxAttempts}  \n\t\tTry Again")
+                print("------------------------------------")
+                continue
         j+=i
           
         if maxAttempts > 0:
