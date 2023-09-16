@@ -37,6 +37,9 @@ def main():
         while j < maxAttempts: 
             print(f"Level : {selectMode} \t Attempts : {maxAttempts}")
             userGuessedWord = input("Guess your word\n")
+            if userGuessedWord == "":
+                print("Blank Guess! \nType n Hit Enter")
+                maxAttempts += 1               
             maxAttempts -= 1
             getWordFromList = randomWord
             print(getWordFromList)
@@ -47,7 +50,7 @@ def main():
                 while i < length:
                     if userGuessedWord[i] == getWordFromList[i]:
                         revealedWord += userGuessedWord[i]
-                    elif userGuessedWord[i] != getWordFromList[i]:
+                    else:
                         revealedWord += " _ "
                     i+= 1
             except:
