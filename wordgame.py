@@ -36,27 +36,29 @@ def main():
         j = 0
         while j < maxAttempts: 
             print(f"Level : {selectMode} \t Attempts : {maxAttempts}")
-            userGuessedWord = input("Guess your word\n")
+            userGuessedWord = input(f"Guess a {len(randomWord)} letter word\n\t")
             if userGuessedWord == "":
                 print("Blank Guess! \nType n Hit Enter")
-                maxAttempts += 1               
+                maxAttempts += 1
+            elif userGuessedWord != "" and len(userGuessedWord) > len(randomWord) and len(userGuessedWord) < len(randomWord):
+                beginner.insert(userGuessedWord)
             maxAttempts -= 1
             getWordFromList = randomWord
-            #print(getWordFromList)
+            #print(getWordFromList) #print for test purpose
             revealedWord = ""
             i = 0
             length = len(getWordFromList)
             try:
                 while i < length:
                     if userGuessedWord[i] == getWordFromList[i]:
-                        #space = " " #for printing space after each character
-                        revealedWord += userGuessedWord[i]# + space
+                        revealedWord += userGuessedWord[i]
                     else:
                         revealedWord += " _ "
                     i+= 1
             except:
                  continue
-            #print(revealedWord) #test statement
+            revealedWord = revealedWord.upper()
+            print(revealedWord) # this will show players guess, if guess matched, word will be revealed otherwise unmatched letters in word will be shown dash instead 
             if revealedWord == userGuessedWord:
                 revealedWord = revealedWord.upper()
                 print("Congratulations! You cracked a word")
