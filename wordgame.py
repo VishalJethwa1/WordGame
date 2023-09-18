@@ -13,7 +13,7 @@ def main():
             print("CRACK A WORD")
             print("Select Level | 1 for Beginner | 2 for Moderate | 3 for Advance")
 
-            selectMode = int(input("Level"))
+            selectMode = int(input("Level")) #user will pass level here
 
             randomWord = None
             maxAttempts = None
@@ -42,20 +42,21 @@ def main():
                 maxAttempts += 1               
             maxAttempts -= 1
             getWordFromList = randomWord
-            print(getWordFromList)
+            #print(getWordFromList)
             revealedWord = ""
             i = 0
             length = len(getWordFromList)
             try:
                 while i < length:
                     if userGuessedWord[i] == getWordFromList[i]:
-                        revealedWord += userGuessedWord[i]
+                        #space = " " #for printing space after each character
+                        revealedWord += userGuessedWord[i]# + space
                     else:
                         revealedWord += " _ "
                     i+= 1
             except:
-                 continue    
-            print(revealedWord) #test statement
+                 continue
+            #print(revealedWord) #test statement
             if revealedWord == userGuessedWord:
                 revealedWord = revealedWord.upper()
                 print("Congratulations! You cracked a word")
