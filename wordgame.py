@@ -27,6 +27,8 @@ def main():
             elif selectMode == 3:
                 randomWord = random.choice(advance)
                 maxAttempts = 6
+            elif selectMode > 3 or selectMode < 1:
+                continue
             else:
                 randomWord = None
         except:
@@ -41,7 +43,7 @@ def main():
                 print("Blank Guess! \nType n Hit Enter")
                 maxAttempts += 1
             elif userGuessedWord != "" and len(userGuessedWord) > len(randomWord) and len(userGuessedWord) < len(randomWord):
-                beginner.insert(userGuessedWord)
+                beginner.append(userGuessedWord)
             maxAttempts -= 1
             getWordFromList = randomWord
             #print(getWordFromList) #print for test purpose
@@ -57,8 +59,8 @@ def main():
                     i+= 1
             except:
                  continue
-            revealedWord = revealedWord.upper()
-            print(revealedWord) # this will show players guess, if guess matched, word will be revealed otherwise unmatched letters in word will be shown dash instead 
+            #revealedWord = revealedWord.upper()
+            print("\t"+revealedWord) # this will show players guess, if guess matched, word will be revealed otherwise unmatched letters in word will be shown dash instead 
             if revealedWord == userGuessedWord:
                 revealedWord = revealedWord.upper()
                 print("Congratulations! You cracked a word")
