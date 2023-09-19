@@ -39,11 +39,15 @@ def main():
         while j < maxAttempts: 
             print(f"Level : {selectMode} \t Attempts : {maxAttempts}")
             userGuessedWord = input(f"Guess a {len(randomWord)} letter word\n\t")
+            try:
+                if len(userGuessedWord) < len(randomWord) or len(userGuessedWord) > len(randomWord):
+                    print(f"Word short or long! Guess a {len(randomWord)} letter word\n\t")
+                    continue
+            except:
+                continue
             if userGuessedWord == "":
                 print("Blank Guess! \nType n Hit Enter")
                 maxAttempts += 1
-            elif userGuessedWord != "" and len(userGuessedWord) > len(randomWord) and len(userGuessedWord) < len(randomWord):
-                beginner.append(userGuessedWord)
             maxAttempts -= 1
             getWordFromList = randomWord
             #print(getWordFromList) #print for test purpose
