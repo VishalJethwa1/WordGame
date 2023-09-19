@@ -13,7 +13,7 @@ def main():
             print("CRACK A WORD")
             print("Select Level | 1 for Beginner | 2 for Moderate | 3 for Advance")
 
-            selectMode = int(input("Level")) #user will pass level here
+            selectMode = int(input("Level\t")) #user will pass level here
 
             randomWord = None
             maxAttempts = None
