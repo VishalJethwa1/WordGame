@@ -18,6 +18,7 @@ def main():
             randomWord = None
             maxAttempts = None
 
+            
             if selectMode == 1:
                 randomWord = random.choice(beginner)
                 maxAttempts = 3
@@ -33,14 +34,14 @@ def main():
                 break
             else:
                 randomWord = None
-        except:
+        except: #notifies player to pass only number and not alphabets
             print("Please select level by pressing numbers : 1 | 2 | 3")
             continue
         
         j = 0
         while j < maxAttempts: 
-            print(f"Level : {selectMode} \t Attempts : {maxAttempts}")
-            userGuessedWord = input(f"Guess a {len(randomWord)} letter word\n\t")
+            print(f"Level : {selectMode} \t Attempts : {maxAttempts}") 
+            userGuessedWord = input(f"Guess a {len(randomWord)} letter word\n\t") #when level is selected next it will show level selected and attempts available
             try:
                 if len(userGuessedWord) < len(randomWord) or len(userGuessedWord) > len(randomWord):
                     print(f"Word short or long! Guess a {len(randomWord)} letter word\n\t")
@@ -48,11 +49,12 @@ def main():
             except:
                 continue
             if userGuessedWord == "":
-                print("Blank Guess! \nType n Hit Enter")
+                print("Blank Guess! \nType any word and Hit Enter")
                 maxAttempts += 1
             maxAttempts -= 1
             getWordFromList = randomWord
             #print(getWordFromList) #print for test purpose
+            global revealedWord
             revealedWord = ""
             i = 0
             length = len(getWordFromList)
@@ -63,10 +65,12 @@ def main():
                     else:
                         revealedWord += " _ "
                     i+= 1
+                if revealedWord != userGuessedWord:
+                    print("\t"+revealedWord) #this will be displayed when player's guessed word is not correct or each letter will be revealed if matched like '_ A _ E for CAKE if GAME or FAME' is guessed 
+                else:
+                    revealedWord = revealedWord
             except:
                  continue
-            #revealedWord = revealedWord.upper()
-            print("\t"+revealedWord) # this will show players guess, if guess matched, word will be revealed otherwise unmatched letters in word will be shown dash instead 
             if revealedWord == userGuessedWord:
                 revealedWord = revealedWord.upper()
                 print("Congratulations! You cracked a word")
@@ -81,7 +85,6 @@ def main():
           
         if maxAttempts > 0:
             break
-    
     
     i+=1
     
