@@ -11,7 +11,7 @@ def main():
     while i > 0: #this loop will continuously display select mode screen
         try:
             print("CRACK A WORD")
-            print("Select Level | 1 for Beginner | 2 for Moderate | 3 for Advance")
+            print("Select Level | 1 for Beginner | 2 for Moderate | 3 for Advance | 0 for Quit Game")
 
             selectMode = int(input("Level\t")) #user will pass level here
 
@@ -27,8 +27,10 @@ def main():
             elif selectMode == 3:
                 randomWord = random.choice(advance)
                 maxAttempts = 6
-            elif selectMode > 3 or selectMode < 1:
+            elif selectMode > 3 or selectMode < 0:
                 continue
+            elif selectMode == 0:
+                break
             else:
                 randomWord = None
         except:
